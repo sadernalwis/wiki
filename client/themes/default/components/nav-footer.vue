@@ -1,10 +1,19 @@
+// <template lang="pug">
+//   v-footer.justify-center(:color='bgColor', inset)
+//     .caption.grey--text(:class='$vuetify.theme.dark ? `text--lighten-1` : `text--darken-1`')
+//       template(v-if='company && company.length > 0 && contentLicense !== ``')
+//         span(v-if='contentLicense === `alr`') {{ $t('common:footer.copyright', { company: company, year: currentYear, interpolation: { escapeValue: false } }) }} |&nbsp;
+//         span(v-else) {{ $t('common:footer.license', { company: company, license: $t('common:license.' + contentLicense), interpolation: { escapeValue: false } }) }} |&nbsp;
+//       span {{ $t('common:footer.poweredBy') }} #[a(href='https://wiki.js.org', ref='nofollow') Wiki.js]
+// </template>
+
 <template lang="pug">
   v-footer.justify-center(:color='bgColor', inset)
     .caption.grey--text(:class='$vuetify.theme.dark ? `text--lighten-1` : `text--darken-1`')
       template(v-if='company && company.length > 0 && contentLicense !== ``')
-        span(v-if='contentLicense === `alr`') {{ $t('common:footer.copyright', { company: company, year: currentYear, interpolation: { escapeValue: false } }) }} |&nbsp;
-        span(v-else) {{ $t('common:footer.license', { company: company, license: $t('common:license.' + contentLicense), interpolation: { escapeValue: false } }) }} |&nbsp;
-      span {{ $t('common:footer.poweredBy') }} #[a(href='https://wiki.js.org', ref='nofollow') Wiki.js]
+        span(v-if='contentLicense === `alr`') #[a(href='https://crimsonlabs.net', ref='nofollow') {{ $t('common:footer.copyright', { company: company, year: currentYear, interpolation: { escapeValue: false } }) }}] &nbsp;
+        span(v-else) {{ $t('common:footer.license', { company: company, license: $t('common:license.' + contentLicense), interpolation: { escapeValue: false } }) }};
+      //- span {{ $t('common:footer.poweredBy') }} #[a(href='https://wiki.js.org', ref='nofollow') Wiki.js]
 </template>
 
 <script>
@@ -50,11 +59,11 @@ export default {
       background: mc('theme', 'primary');
 
       span {
-        color: mc('blue', '300');
+        color: mc('grey', '300');
       }
 
       a {
-        color: mc('blue', '200');
+        color: mc('grey', '200');
       }
     }
   }

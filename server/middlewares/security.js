@@ -14,7 +14,7 @@ module.exports = function (req, res, next) {
 
   // -> Disable Frame Embedding
   if (WIKI.config.securityIframe) {
-    res.set('X-Frame-Options', 'deny')
+    // res.set('X-Frame-Options', 'deny')
   }
 
   // -> Re-enable XSS Fitler if disabled
